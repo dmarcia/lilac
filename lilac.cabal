@@ -10,21 +10,36 @@ maintainer:         marcia@disroot.org
 category:           Language
 
 library
-    exposed-modules:  Lilac 
+    exposed-modules:    Lilac,
+                        Lilac.Utility,
+                        Lilac.Source,
+                        Lilac.Syntax,
+                        Lilac.Parser.Error,
+                        Lilac.Parser.Obj,
+                        Lilac.Parser.Phase1,
+                        Lilac.Parser.Phase2
     other-modules:
-    build-depends:    base ^>=4.14.1.0
-    hs-source-dirs:   src
-    default-language: Haskell2010
+    build-depends:      base ^>=4.14.1.0,
+                        text ^>=2.0,
+                        megaparsec ^>=9.2,
+                        composition ^>=1.0,
+                        mtl ^>=2.2,
+                        parser-combinators ^>=1.3
+    hs-source-dirs:     src
+    default-language:   Haskell2010
+    default-extensions: UnicodeSyntax,
+                        OverloadedStrings,
+                        LambdaCase,
+                        StandaloneDeriving
 
 executable lilac
-    main-is:          Main.hs
+    main-is:            Main.hs
     other-modules:
-    build-depends:
-        base ^>=4.14.1.0,
-        lilac
-
-    hs-source-dirs:   app
-    default-language: Haskell2010
+    build-depends:      base ^>=4.14.1.0,
+                        lilac
+    hs-source-dirs:     app
+    default-language:   Haskell2010
+    default-extensions: UnicodeSyntax
 
 test-suite lilac-test
     default-language: Haskell2010
